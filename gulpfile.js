@@ -1,4 +1,4 @@
-const { src, dest, series, parallel } = require('gulp');
+const { src, dest, series, parallel, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const fs = require('fs');
 
@@ -49,6 +49,14 @@ function html() {
     .pipe(browserSync.stream());
 }
 
+function watchFiles() {
+  watch('scss/**/*.scss', styles);
+  watch('js/**/*.js', scripts);
+  watch('img/**/*', images);
+  watch('index.html', html);
+}
+
+
 function serve(done) {
   const baseDir = fs.existsSync('dist') ? 'dist' : '.';
 
@@ -57,7 +65,8 @@ function serve(done) {
     open: true,
     notify: false,
   });
-
+  
+  watchFiles();
   done();
 }
 

@@ -5,10 +5,16 @@ const fs = require('fs');
 const sass = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cleanCSS = require('gulp-clean-css');
+
 function styles() {
   return src('scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('styles.css'))
+    .pipe(postcss([autoprefixer()]))
+    .pipe(cleanCSS())
     .pipe(dest('css'))
     .pipe(browserSync.stream());
 }

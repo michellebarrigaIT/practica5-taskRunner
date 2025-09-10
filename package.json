@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "start": "npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -10,6 +13,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
     "sass": "^1.92.1"
   }
 }

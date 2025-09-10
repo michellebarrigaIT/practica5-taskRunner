@@ -13,13 +13,15 @@ const uglify = require('gulp-uglify');
 
 const imagemin = require('gulp-imagemin');
 
+const htmlReplace = require('gulp-html-replace');
+
 function styles() {
   return src('scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('styles.css'))
     .pipe(postcss([autoprefixer()]))
     .pipe(cleanCSS())
-    .pipe(dest('css'))
+    .pipe(dest('dist/css'))
     .pipe(browserSync.stream());
 }
 
@@ -32,9 +34,18 @@ function scripts() {
 }
 
 function images() {
-  return src('img/**/*') 
+  return src('img/**/*')
     .pipe(imagemin())
-    .pipe(dest('dist/img'))
+    .pipe(dest('dist/img'));
+}
+
+function html() {
+  return src('index.html')
+    .pipe(htmlReplace({
+      'css': 'css/styles.css',
+      'js': 'js/app.js'
+    }))
+    .pipe(dest('dist'))
     .pipe(browserSync.stream());
 }
 
@@ -60,4 +71,4 @@ exports.scripts = scripts;
 exports.images = images;
 exports.serve = serve;
 exports.reload = reload;
-exports.default = series(styles, scripts, images, serve);
+exports.default = series(styles, scripts, images, html, serve);

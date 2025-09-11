@@ -15,5 +15,5 @@ taskRunner
 ``` 
 ## Start proyect
 ``` 
-gulp        
+npx gulp        
 ``` 

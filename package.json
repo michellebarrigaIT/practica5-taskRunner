@@ -13,9 +13,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "browser-sync": "^3.0.4",
-    "gulp": "^5.0.1",
+    "autoprefixer": "^8.0.0",
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-html-replace": "^1.6.2",
@@ -23,11 +23,6 @@
     "gulp-postcss": "^10.0.0",
     "gulp-sass": "^6.0.1",
     "gulp-uglify": "^3.0.2",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-pngquant": "^10.0.0",
-    "imagemin-svgo": "^11.0.1",
     "sass": "^1.92.1"
   }
 }
